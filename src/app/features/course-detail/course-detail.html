@@ -1,0 +1,134 @@
+<section class="course-detail">
+  <a mat-button class="back-link" routerLink="/courses"
+    ><span aria-hidden="true">→</span> {{ 'PORTAL.COURSE.BACK' | translate }}</a
+  >
+  @if (loadState() === 'loading') {
+    <div class="state-card" role="status">
+      <span class="loader"></span>{{ 'PORTAL.COMMON.LOADING' | translate }}
+    </div>
+  } @else if (loadState() === 'error') {
+    <div class="state-card error-state" role="alert">
+      {{ 'PORTAL.COURSE.CATALOG_ERROR' | translate }}
+    </div>
+  } @else if (loadState() === 'not-found') {
+    <div class="state-card">
+      <div>
+        <h1>{{ 'PORTAL.COMMON.NOT_FOUND_TITLE' | translate }}</h1>
+        <a mat-button routerLink="/courses">{{ 'PORTAL.COMMON.BACK_TO_COURSES' | translate }}</a>
+      </div>
+    </div>
+  } @else if (course(); as selectedCourse) {
+    @let totalLessons = lessonCount(selectedCourse);
+    @let courseProgress = progress.getCourseProgressPercent(selectedCourse);
+    @if (showLockedNotice()) {
+      <div class="locked-notice" role="status">
+        <span aria-hidden="true">ⓘ</span>{{ 'PORTAL.COURSE.LOCKED_NOTICE' | translate }}
+      </div>
+    }
+    <header class="course-hero">
+      <div class="course-cover" [style.background-image]="'url(' + selectedCourse.thumbnail + ')'">
+        <span class="cover-chip">{{ 'PORTAL.COURSES.CURATED' | translate }}</span>
+      </div>
+      <div class="hero-copy">
+        <span class="eyebrow">{{ 'PORTAL.COURSE.LEARNING_PATH' | translate }}</span>
+        <h1>{{ localized(selectedCourse.title) }}</h1>
+        <p>
+          {{ 'PORTAL.COURSES.INSTRUCTOR' | translate }} · {{ localized(selectedCourse.instructor) }}
+        </p>
+        <div class="hero-stats">
+          <span>◉ {{ totalLessons }} {{ 'PORTAL.COMMON.LESSONS' | translate }}</span
+          ><span>✓ {{ courseProgress }}% {{ 'PORTAL.COURSES.PROGRESS' | translate }}</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="content-heading">
+      <div>
+        <span class="eyebrow">{{ 'PORTAL.COURSE.COURSE_OUTLINE' | translate }}</span>
+        <h2>{{ 'PORTAL.COURSE.LESSON_LIST' | translate }}</h2>
+      </div>
+    </div>
+    @if (totalLessons === 0) {
+      <div class="state-card">{{ 'PORTAL.COMMON.EMPTY_COURSE' | translate }}</div>
+    } @else {
+      <div class="sections-list">
+        @for (section of selectedCourse.sections; track section.id; let sectionIndex = $index) {
+          <mat-card class="section-card">
+            <div class="section-title">
+              <span class="section-number">{{
+                (sectionIndex + 1).toString().padStart(2, '0')
+              }}</span>
+              <div>
+                <span class="eyebrow"
+                  >{{ 'PORTAL.COURSE.SECTION' | translate }} {{ sectionIndex + 1 }}</span
+                >
+                <h3>{{ localized(section.title) }}</h3>
+              </div>
+              <span class="section-count"
+                >{{ section.lessons.length }} {{ 'PORTAL.COMMON.LESSONS' | translate }}</span
+              >
+            </div>
+            @for (lesson of section.lessons; track lesson.id) {
+              @let state = lessonState(selectedCourse, lesson);
+              <div class="lesson-row" [class.lesson-locked]="state === 'locked'">
+                <div
+                  class="lesson-play"
+                  [class.completed]="state === 'completed'"
+                  [class.locked]="state === 'locked'"
+                  aria-hidden="true"
+                >
+                  @if (state === 'completed') {
+                    <svg viewBox="0 0 24 24" focusable="false"><path d="m5 12 4.5 4.5L19 7" /></svg>
+                  } @else if (state === 'locked') {
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <rect x="5" y="10" width="14" height="11" rx="2" />
+                      <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+                      <path d="M12 14v3" />
+                    </svg>
+                  } @else {
+                    <svg viewBox="0 0 24 24" focusable="false"><path d="m9 6 10 6-10 6z" /></svg>
+                  }
+                </div>
+                <div class="lesson-copy">
+                  <strong>{{ localized(lesson.title) }}</strong
+                  ><span>{{ durationLabel(lesson.durationSec) }}</span>
+                </div>
+                <span
+                  class="lesson-status"
+                  [class.status-complete]="state === 'completed'"
+                  [class.status-progress]="state === 'in-progress'"
+                  [class.status-locked]="state === 'locked'"
+                  >{{
+                    'PORTAL.COURSE.STATUS_' + state.toUpperCase().replace('-', '_') | translate
+                  }}</span
+                >
+                @if (state !== 'locked') {
+                  <a
+                    class="lesson-action"
+                    [routerLink]="['/courses', selectedCourse.id, 'lessons', lesson.id]"
+                    [attr.aria-label]="localized(lesson.title)"
+                  >
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </a>
+                } @else {
+                  <span
+                    class="lesson-action locked-action"
+                    [attr.aria-label]="'PORTAL.COURSE.STATUS_LOCKED' | translate"
+                    [title]="'PORTAL.COURSE.STATUS_LOCKED' | translate"
+                  >
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <rect x="5" y="10" width="14" height="11" rx="2" />
+                      <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+                    </svg>
+                  </span>
+                }
+              </div>
+            }
+          </mat-card>
+        }
+      </div>
+    }
+  }
+</section>

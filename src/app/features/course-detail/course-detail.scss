@@ -1,0 +1,315 @@
+:host {
+  display: block;
+}
+.course-detail {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.back-link {
+  margin-inline-start: -0.6rem;
+  margin-bottom: 1.15rem;
+  color: var(--muted) !important;
+}
+.course-hero {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.83fr) 1.4fr;
+  min-height: 300px;
+  overflow: hidden;
+  margin-bottom: 2.6rem;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.course-cover {
+  position: relative;
+  min-height: 250px;
+  background-position: center;
+  background-size: cover;
+}
+.course-cover::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: linear-gradient(0deg, rgba(9, 18, 28, 0.45), transparent 65%);
+}
+.cover-chip {
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 1rem;
+  inset-inline-start: 1rem;
+  padding: 0.45rem 0.75rem;
+  color: #e8fff7;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  background: rgba(9, 24, 36, 0.55);
+  font-size: 0.75rem;
+}
+.hero-copy {
+  align-self: center;
+  padding: clamp(1.3rem, 4vw, 3rem);
+}
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+.hero-copy h1 {
+  margin: 0.7rem 0 0.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.7rem);
+  letter-spacing: -0.04em;
+}
+.hero-copy p {
+  color: var(--muted);
+}
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+.hero-stats span {
+  padding: 0.55rem 0.75rem;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 50px;
+  background: var(--surface-raised);
+  font-size: 0.8rem;
+}
+.content-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.content-heading h2 {
+  margin: 0.35rem 0 0;
+  font-size: 1.55rem;
+}
+.sections-list {
+  display: grid;
+  gap: 1rem;
+}
+.section-card {
+  overflow: hidden;
+  padding: 0 1.25rem;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 18px !important;
+  background: var(--surface) !important;
+  box-shadow: var(--shadow) !important;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.section-title h3 {
+  margin: 0.22rem 0 0;
+  font-size: 1.05rem;
+}
+.section-number {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  height: 44px;
+  color: var(--accent);
+  border-radius: 13px;
+  background: var(--accent-soft);
+  font-weight: 800;
+}
+.section-count {
+  margin-inline-start: auto;
+  color: var(--muted);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+.lesson-row {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) auto 36px;
+  align-items: center;
+  column-gap: 0.85rem;
+  min-height: 76px;
+  border-bottom: 1px solid var(--line);
+}
+.lesson-row:last-child {
+  border-bottom: 0;
+}
+.lesson-play {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  color: var(--accent);
+  border-radius: 12px;
+  background: var(--accent-soft);
+}
+.lesson-play.completed {
+  color: var(--accent-on-fill);
+  background: var(--accent);
+}
+.lesson-play.locked {
+  color: var(--muted);
+  background: var(--surface-raised);
+}
+.lesson-play svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+.lesson-play:not(.locked):not(.completed) svg {
+  fill: currentColor;
+  stroke: none;
+}
+.lesson-copy {
+  display: grid;
+  min-width: 0;
+  gap: 0.25rem;
+}
+.lesson-copy strong {
+  font-size: 0.94rem;
+}
+.lesson-copy span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.lesson-status {
+  padding: 0.34rem 0.62rem;
+  color: var(--muted);
+  border-radius: 50px;
+  background: var(--surface-raised);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+.status-complete {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.status-progress {
+  color: var(--warning);
+  background: var(--warning-soft);
+}
+.status-locked {
+  opacity: 0.8;
+}
+.lesson-action {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  text-decoration: none;
+}
+.lesson-action svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+.lesson-action:hover {
+  color: var(--accent-on-fill);
+  border-color: var(--accent);
+  background: var(--accent);
+}
+.locked-action {
+  color: var(--muted);
+}
+.locked-action:hover {
+  color: var(--muted);
+  border-color: var(--line);
+  background: var(--surface-raised);
+}
+.lesson-locked .lesson-copy {
+  opacity: 0.65;
+}
+.locked-notice {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  color: var(--warning);
+  border: 1px solid var(--warning-border);
+  border-radius: 12px;
+  background: var(--warning-soft);
+}
+.state-card {
+  display: grid;
+  place-items: center;
+  min-height: 170px;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  text-align: center;
+}
+.state-card h1 {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+}
+.error-state {
+  border-color: var(--danger-border);
+  color: var(--danger);
+}
+.loader {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--line);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 720px) {
+  .course-hero {
+    grid-template-columns: 1fr;
+  }
+  .course-cover {
+    min-height: 210px;
+  }
+  .section-card {
+    padding-inline: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .lesson-row {
+    grid-template-columns: 34px minmax(0, 1fr) auto 32px;
+    column-gap: 0.5rem;
+  }
+  .lesson-play {
+    width: 34px;
+    height: 34px;
+  }
+  .lesson-action {
+    width: 32px;
+    height: 32px;
+  }
+  .lesson-status {
+    padding: 0.3rem 0.45rem;
+    font-size: 0.65rem;
+  }
+  .lesson-copy strong {
+    font-size: 0.83rem;
+  }
+  .section-count {
+    font-size: 0.68rem;
+  }
+}
