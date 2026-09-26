@@ -1,0 +1,187 @@
+<section class="lesson-page">
+  @if (loadState() === 'loading') {
+    <div class="state-card" role="status">
+      <span class="loader"></span>{{ 'PORTAL.COMMON.LOADING' | translate }}
+    </div>
+  } @else if (loadState() === 'not-found') {
+    <div class="state-card not-found">
+      <span class="not-found-icon" aria-hidden="true">⌕</span>
+      <h1>{{ 'PORTAL.COMMON.NOT_FOUND_TITLE' | translate }}</h1>
+      <p>{{ 'PORTAL.PLAYER.LESSON_NOT_FOUND' | translate }}</p>
+      <a mat-button routerLink="/courses">{{ 'PORTAL.COMMON.BACK_TO_COURSES' | translate }}</a>
+    </div>
+  } @else if (loadState() === 'error') {
+    <div class="state-card error-state" role="alert">
+      {{ 'PORTAL.COURSE.CATALOG_ERROR' | translate }}
+    </div>
+  } @else if (course(); as selectedCourse) {
+    @if (lesson(); as selectedLesson) {
+      <a mat-button class="back-link" [routerLink]="['/courses', selectedCourse.id]"
+        ><span aria-hidden="true">→</span> {{ localized(selectedCourse.title) }}</a
+      >
+      <header class="lesson-heading">
+        <div>
+          <span class="eyebrow">{{ 'PORTAL.PLAYER.WATCH_LESSON' | translate }}</span>
+          <h1>{{ localized(selectedLesson.title) }}</h1>
+          <p>{{ localized(selectedCourse.title) }} · {{ localized(selectedCourse.instructor) }}</p>
+        </div>
+        @if (progress.isLessonCompleted(selectedCourse.id, selectedLesson.id)) {
+          <span class="completed-badge">✓ {{ 'PORTAL.COURSE.STATUS_COMPLETED' | translate }}</span>
+        }
+      </header>
+
+      @if (playbackError()) {
+        <div class="video-error" role="alert">
+          <span aria-hidden="true">!</span>
+          <div>
+            <strong>{{ 'PORTAL.PLAYER.VIDEO_UNAVAILABLE' | translate }}</strong>
+            <p>{{ 'PORTAL.PLAYER.VIDEO_ERROR' | translate }}</p>
+          </div>
+        </div>
+      }
+      @if (completionNotice()) {
+        <div class="completion-notice" role="status">
+          ✓ {{ 'PORTAL.PLAYER.COMPLETED' | translate }}
+        </div>
+      }
+
+      <div class="lesson-content">
+        <mat-card class="video-card">
+          <div class="video-frame" [class.video-failed]="playbackError()">
+            <video
+              #videoElement
+              [src]="selectedLesson.video"
+              preload="metadata"
+              [attr.aria-label]="localized(selectedLesson.title)"
+              (loadedmetadata)="onMetadataLoaded()"
+              (timeupdate)="onTimeUpdate()"
+              (play)="onMediaPlay()"
+              (pause)="onMediaPause()"
+              (ended)="onTimeUpdate()"
+              (error)="onMediaError()"
+            ></video>
+            @if (playbackError()) {
+              <div class="video-placeholder">
+                <span>◌</span><strong>{{ 'PORTAL.PLAYER.VIDEO_UNAVAILABLE' | translate }}</strong>
+              </div>
+            } @else if (!playing()) {
+              <button
+                class="big-play"
+                type="button"
+                [attr.aria-label]="'PORTAL.PLAYER.PLAY' | translate"
+                (click)="togglePlayback()"
+              >
+                ▶
+              </button>
+            }
+          </div>
+          <div class="controls">
+            <div class="seek-row">
+              <span class="time-code" dir="ltr">{{ formatTime(currentTime()) }}</span
+              ><input
+                type="range"
+                min="0"
+                [max]="duration() || selectedLesson.durationSec"
+                step="0.1"
+                [value]="currentTime()"
+                [attr.aria-label]="'PORTAL.PLAYER.SEEK' | translate"
+                (input)="onSeek($event)"
+              /><span class="time-code" dir="ltr">{{
+                formatTime(duration() || selectedLesson.durationSec)
+              }}</span>
+            </div>
+            <div class="control-row">
+              <button
+                mat-icon-button
+                type="button"
+                class="play-control"
+                [attr.aria-label]="
+                  (playing() ? 'PORTAL.PLAYER.PAUSE' : 'PORTAL.PLAYER.PLAY') | translate
+                "
+                (click)="togglePlayback()"
+              >
+                <span aria-hidden="true">{{ playing() ? 'Ⅱ' : '▶' }}</span>
+              </button>
+              <div class="control-spacer"></div>
+              <div
+                class="speed-selector"
+                role="group"
+                [attr.aria-label]="'PORTAL.PLAYER.SPEED' | translate"
+              >
+                <span>{{ 'PORTAL.PLAYER.SPEED' | translate }}</span>
+                @for (speed of speeds; track speed) {
+                  <button
+                    type="button"
+                    [class.active-speed]="selectedSpeed() === speed"
+                    (click)="chooseSpeed(speed)"
+                  >
+                    {{ speed }}×
+                  </button>
+                }
+              </div>
+              <button
+                mat-icon-button
+                type="button"
+                [attr.aria-label]="'PORTAL.PLAYER.FULLSCREEN' | translate"
+                (click)="toggleFullscreen()"
+              >
+                <span aria-hidden="true">⛶</span>
+              </button>
+            </div>
+          </div>
+        </mat-card>
+
+        <mat-card class="notes-card">
+          <div class="notes-heading">
+            <span class="notes-icon" aria-hidden="true">✎</span>
+            <div>
+              <h2>{{ 'PORTAL.PLAYER.NOTES_TITLE' | translate }}</h2>
+              <p>{{ 'PORTAL.PLAYER.NOTES_HELP' | translate }}</p>
+            </div>
+            <span class="saved-label">{{ 'PORTAL.PLAYER.SAVED_LOCALLY' | translate }}</span>
+          </div>
+          <label
+            ><span class="visually-hidden">{{ 'PORTAL.PLAYER.NOTES_TITLE' | translate }}</span
+            ><textarea
+              [value]="noteText()"
+              [placeholder]="'PORTAL.PLAYER.NOTES_PLACEHOLDER' | translate"
+              (input)="updateNoteFromEvent($event)"
+            ></textarea>
+          </label>
+        </mat-card>
+      </div>
+
+      <section class="next-lesson" [attr.aria-label]="'PORTAL.PLAYER.UP_NEXT' | translate">
+        @if (nextLesson(); as followingLesson) {
+          <div>
+            <span class="eyebrow">{{ 'PORTAL.PLAYER.UP_NEXT' | translate }}</span>
+            <h2>{{ localized(followingLesson.title) }}</h2>
+          </div>
+          <a
+            mat-button
+            class="next-button"
+            [class.next-disabled]="
+              !progress.isLessonCompleted(selectedCourse.id, selectedLesson.id)
+            "
+            [attr.aria-disabled]="!progress.isLessonCompleted(selectedCourse.id, selectedLesson.id)"
+            [routerLink]="
+              progress.isLessonCompleted(selectedCourse.id, selectedLesson.id)
+                ? ['/courses', selectedCourse.id, 'lessons', followingLesson.id]
+                : null
+            "
+            >{{ 'PORTAL.PLAYER.NEXT' | translate }} <span aria-hidden="true">←</span></a
+          >
+        } @else {
+          <div>
+            <span class="eyebrow">{{ 'PORTAL.PLAYER.UP_NEXT' | translate }}</span>
+            <h2>{{ 'PORTAL.PLAYER.ALL_DONE_TITLE' | translate }}</h2>
+            <p>{{ 'PORTAL.PLAYER.FINISHED' | translate }}</p>
+          </div>
+          <a mat-button class="next-button" [routerLink]="['/courses', selectedCourse.id]">{{
+            'PORTAL.COURSE.BACK' | translate
+          }}</a>
+        }
+      </section>
+    }
+  }
+</section>
