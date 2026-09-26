@@ -1,0 +1,91 @@
+<section class="page-heading">
+  <div>
+    <span class="eyebrow">{{ 'PORTAL.COURSES.EYEBROW' | translate }}</span>
+    <h1>{{ 'PORTAL.COURSES.TITLE' | translate }}</h1>
+    <p>{{ 'PORTAL.COURSES.INTRO' | translate }}</p>
+  </div>
+  <label class="search-field">
+    <span class="search-icon" aria-hidden="true">⌕</span>
+    <span class="visually-hidden">{{ 'PORTAL.COURSES.SEARCH' | translate }}</span>
+    <input
+      type="search"
+      [placeholder]="'PORTAL.COURSES.SEARCH' | translate"
+      (input)="updateQuery($event)"
+    />
+  </label>
+</section>
+
+@if (loadState() === 'loading') {
+  <div class="state-card" role="status">
+    <span class="loader"></span>{{ 'PORTAL.COMMON.LOADING' | translate }}
+  </div>
+} @else if (loadState() === 'error') {
+  <div class="state-card error-state" role="alert">
+    <span>{{ 'PORTAL.COURSES.LOAD_ERROR' | translate }}</span
+    ><button mat-button (click)="loadCourses()">{{ 'PORTAL.COMMON.RETRY' | translate }}</button>
+  </div>
+} @else if (courses().length === 0) {
+  <div class="state-card">{{ 'PORTAL.COURSES.EMPTY_TITLE' | translate }}</div>
+} @else {
+  @if (continueItem(); as item) {
+    <a class="continue-card" [routerLink]="['/courses', item.course.id, 'lessons', item.lesson.id]">
+      <div class="continue-art"><span aria-hidden="true">▶</span></div>
+      <div class="continue-copy">
+        <span class="continue-kicker">{{ 'PORTAL.COURSES.CONTINUE_TITLE' | translate }}</span>
+        <strong>{{ localized(item.lesson.title) }}</strong>
+        <span>{{ localized(item.course.title) }}</span>
+      </div>
+      <span class="continue-action"
+        >{{ 'PORTAL.COURSES.CONTINUE_ACTION' | translate }} <span aria-hidden="true">←</span></span
+      >
+    </a>
+  }
+
+  @if (filteredCourses().length === 0) {
+    <div class="state-card">{{ 'PORTAL.COURSES.NO_RESULTS' | translate }}</div>
+  } @else {
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">{{ 'PORTAL.COURSES.LIBRARY' | translate }}</span>
+        <h2>{{ 'PORTAL.NAV.COURSES' | translate }}</h2>
+      </div>
+      <span class="course-count"
+        >{{ filteredCourses().length }} {{ 'PORTAL.COURSES.COURSES_COUNT' | translate }}</span
+      >
+    </div>
+    <div class="course-grid">
+      @for (course of filteredCourses(); track course.id) {
+        @let courseProgress = progress.getCourseProgressPercent(course);
+        <mat-card class="course-card">
+          <a
+            class="course-art"
+            [routerLink]="['/courses', course.id]"
+            [style.background-image]="'url(' + course.thumbnail + ')'"
+          >
+            <span class="art-chip">✦ {{ 'PORTAL.COURSES.CURATED' | translate }}</span>
+          </a>
+          <div class="course-card-body">
+            <span class="course-meta"
+              >{{ lessonCount(course) }} {{ 'PORTAL.COMMON.LESSONS' | translate }}</span
+            >
+            <h3>
+              <a [routerLink]="['/courses', course.id]">{{ localized(course.title) }}</a>
+            </h3>
+            <p class="instructor">
+              <span class="avatar">{{ localized(course.instructor).slice(0, 1) }}</span
+              ><span>{{ localized(course.instructor) }}</span>
+            </p>
+            <div class="progress-label">
+              <span>{{ 'PORTAL.COURSES.PROGRESS' | translate }}</span
+              ><strong>{{ courseProgress }}%</strong>
+            </div>
+            <mat-progress-bar class="course-progress" mode="determinate" [value]="courseProgress" />
+            <a mat-button class="open-course" [routerLink]="['/courses', course.id]"
+              >{{ 'PORTAL.COURSES.OPEN_COURSE' | translate }} <span aria-hidden="true">←</span></a
+            >
+          </div>
+        </mat-card>
+      }
+    </div>
+  }
+}
