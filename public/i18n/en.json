@@ -1,0 +1,83 @@
+{
+  "PORTAL": {
+    "BRAND": "Thaheen",
+    "APP_TITLE": "Thaheen | Health Learning",
+    "NAV": {
+      "MAIN_LABEL": "Main navigation",
+      "COURSES": "My courses"
+    },
+    "TOOLBAR": {
+      "OPEN_MENU": "Open navigation",
+      "LANGUAGE_MENU": "Language",
+      "LIGHT_MODE": "Switch to light mode",
+      "DARK_MODE": "Switch to dark mode"
+    },
+    "LANGUAGE": {
+      "ARABIC": "العربية",
+      "ENGLISH": "English"
+    },
+    "COMMON": {
+      "LOADING": "Loading your learning space…",
+      "RETRY": "Try again",
+      "BACK_TO_COURSES": "Back to courses",
+      "LESSONS": "lessons",
+      "NOT_FOUND_TITLE": "We couldn’t find that content",
+      "EMPTY_COURSE": "There are no lessons in this course yet."
+    },
+    "COURSES": {
+      "EYEBROW": "YOUR LEARNING SPACE",
+      "TITLE": "Learn at your own pace",
+      "INTRO": "Pick up your health sciences lessons whenever you’re ready.",
+      "CONTINUE_TITLE": "Continue watching",
+      "CONTINUE_ACTION": "Resume lesson",
+      "INSTRUCTOR": "Instructor",
+      "PROGRESS": "Course progress",
+      "OPEN_COURSE": "View course",
+      "EMPTY_TITLE": "No courses available",
+      "LOAD_ERROR": "The courses stored on this device could not be loaded.",
+      "SEARCH": "Search courses or instructors",
+      "LIBRARY": "YOUR LIBRARY",
+      "COURSES_COUNT": "courses",
+      "CURATED": "Learning path",
+      "NO_RESULTS": "No courses match your search."
+    },
+    "COURSE": {
+      "BACK": "All courses",
+      "LESSON_LIST": "Course content",
+      "LEARNING_PATH": "LEARNING PATH",
+      "COURSE_OUTLINE": "YOUR STUDY PLAN",
+      "SECTION": "UNIT",
+      "STATUS_COMPLETED": "Completed",
+      "STATUS_IN_PROGRESS": "In progress",
+      "STATUS_NOT_STARTED": "Not started",
+      "STATUS_LOCKED": "Locked",
+      "LOCKED_NOTICE": "Complete the previous lesson to unlock this one.",
+      "CATALOG_ERROR": "Course information could not be loaded."
+    },
+    "PLAYER": {
+      "PLAY": "Play",
+      "PAUSE": "Pause",
+      "SEEK": "Lesson position",
+      "FULLSCREEN": "Fullscreen",
+      "SPEED": "Speed",
+      "VIDEO_UNAVAILABLE": "Video unavailable",
+      "VIDEO_ERROR": "This video could not be played. Check the local file and try again.",
+      "VIDEO_CREDIT": "Video by",
+      "COMPLETED": "Well done! You completed this lesson.",
+      "NEXT": "Next lesson",
+      "FINISHED": "You’ve completed every lesson in this course.",
+      "LESSON_NOT_FOUND": "Check the link or choose one of your courses to continue.",
+      "NOTES_TITLE": "Lesson notes",
+      "NOTES_HELP": "Your notes stay on this device.",
+      "SAVED_LOCALLY": "Saved locally",
+      "NOTES_PLACEHOLDER": "Write down what you want to remember…",
+      "UP_NEXT": "UP NEXT",
+      "ALL_DONE_TITLE": "You reached the end of the course",
+      "OFFLINE_READY": "Ready to learn offline",
+      "WATCH_LESSON": "Watch lesson"
+    },
+    "FOOTER": {
+      "COPYRIGHT": "© {{year}} Thaheen · All rights reserved"
+    }
+  }
+}

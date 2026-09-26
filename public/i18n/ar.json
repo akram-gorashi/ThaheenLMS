@@ -1,0 +1,83 @@
+{
+  "PORTAL": {
+    "BRAND": "ذهين",
+    "APP_TITLE": "ذهين | التعلّم الصحي",
+    "NAV": {
+      "MAIN_LABEL": "التنقل الرئيسي",
+      "COURSES": "دوراتي"
+    },
+    "TOOLBAR": {
+      "OPEN_MENU": "فتح القائمة",
+      "LANGUAGE_MENU": "اللغة",
+      "LIGHT_MODE": "تفعيل الوضع الفاتح",
+      "DARK_MODE": "تفعيل الوضع الداكن"
+    },
+    "LANGUAGE": {
+      "ARABIC": "العربية",
+      "ENGLISH": "English"
+    },
+    "COMMON": {
+      "LOADING": "جارٍ تحميل المحتوى…",
+      "RETRY": "إعادة المحاولة",
+      "BACK_TO_COURSES": "العودة إلى الدورات",
+      "LESSONS": "دروس",
+      "NOT_FOUND_TITLE": "المحتوى غير موجود",
+      "EMPTY_COURSE": "لا توجد دروس في هذه الدورة بعد."
+    },
+    "COURSES": {
+      "EYEBROW": "مساحة تعلّمك",
+      "TITLE": "تعلّم بخطوة ثابتة",
+      "INTRO": "تابع دروس العلوم الصحية على وتيرتك.",
+      "CONTINUE_TITLE": "تابع المشاهدة",
+      "CONTINUE_ACTION": "متابعة الدرس",
+      "INSTRUCTOR": "المحاضر",
+      "PROGRESS": "تقدّم الدورة",
+      "OPEN_COURSE": "عرض الدورة",
+      "EMPTY_TITLE": "لا توجد دورات متاحة",
+      "LOAD_ERROR": "تعذّر تحميل الدورات المحفوظة على هذا الجهاز.",
+      "SEARCH": "ابحث عن دورة أو محاضر",
+      "LIBRARY": "مكتبتك التعليمية",
+      "COURSES_COUNT": "دورات",
+      "CURATED": "مسار تعليمي",
+      "NO_RESULTS": "لم نعثر على دورات تطابق بحثك."
+    },
+    "COURSE": {
+      "BACK": "كل الدورات",
+      "LESSON_LIST": "محتوى الدورة",
+      "LEARNING_PATH": "مسار تعليمي",
+      "COURSE_OUTLINE": "خطتك التعليمية",
+      "SECTION": "الوحدة",
+      "STATUS_COMPLETED": "مكتمل",
+      "STATUS_IN_PROGRESS": "قيد المشاهدة",
+      "STATUS_NOT_STARTED": "لم يبدأ",
+      "STATUS_LOCKED": "مقفل",
+      "LOCKED_NOTICE": "أكمل الدرس السابق لفتح هذا الدرس.",
+      "CATALOG_ERROR": "تعذّر تحميل بيانات الدورة."
+    },
+    "PLAYER": {
+      "PLAY": "تشغيل",
+      "PAUSE": "إيقاف مؤقت",
+      "SEEK": "موضع الدرس",
+      "FULLSCREEN": "ملء الشاشة",
+      "SPEED": "السرعة",
+      "VIDEO_UNAVAILABLE": "الفيديو غير متاح",
+      "VIDEO_ERROR": "تعذّر تشغيل هذا الفيديو. تحقق من الملف المحلي وحاول مرة أخرى.",
+      "VIDEO_CREDIT": "الفيديو من",
+      "COMPLETED": "أحسنت! أكملت هذا الدرس.",
+      "NEXT": "الدرس التالي",
+      "FINISHED": "أكملت كل دروس هذه الدورة.",
+      "LESSON_NOT_FOUND": "تأكد من الرابط أو اختر إحدى دوراتك للمتابعة.",
+      "NOTES_TITLE": "ملاحظات الدرس",
+      "NOTES_HELP": "أفكارك محفوظة على هذا الجهاز فقط.",
+      "SAVED_LOCALLY": "حُفظت محلياً",
+      "NOTES_PLACEHOLDER": "دوّن النقاط التي تريد تذكّرها…",
+      "UP_NEXT": "الخطوة التالية",
+      "ALL_DONE_TITLE": "وصلت إلى نهاية الدورة",
+      "OFFLINE_READY": "جاهز للتعلّم دون اتصال",
+      "WATCH_LESSON": "مشاهدة الدرس"
+    },
+    "FOOTER": {
+      "COPYRIGHT": "© {{year}} ذهين · جميع الحقوق محفوظة"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  color-scheme: dark;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$violet-palette,
+        tertiary: mat.$rose-palette,
+      ),
+      typography: (
+        plain-family: var(--font-interface),
+        brand-family: var(--font-interface),
+        regular-weight: 400,
+        medium-weight: 500,
+        bold-weight: 700,
+      ),
+      density: 0,
+    )
+  );
+}
+
+:root {
+  --page: #17141f;
+  --surface: #211d2b;
+  --surface-raised: #2a2535;
+  --toolbar: rgba(33, 29, 43, 0.94);
+  --line: rgba(234, 221, 250, 0.13);
+  --text: #f7f2fa;
+  --muted: #b7acbf;
+  --accent: #c79bef;
+  --accent-soft: rgba(199, 155, 239, 0.14);
+  --accent-border: rgba(199, 155, 239, 0.32);
+  --accent-on-fill: #24152f;
+  --warning: #f0c878;
+  --warning-soft: rgba(240, 200, 120, 0.12);
+  --warning-border: rgba(240, 200, 120, 0.28);
+  --danger: #ffa1a0;
+  --danger-soft: rgba(255, 129, 126, 0.1);
+  --danger-border: rgba(255, 129, 126, 0.28);
+  --nav-gradient: linear-gradient(155deg, #7438a7 0%, #a23984 50%, #c63952 100%);
+  --shadow: 0 16px 48px rgba(8, 6, 20, 0.22);
+  --mat-sys-primary: var(--accent);
+  --mat-sys-on-primary: var(--accent-on-fill);
+  --mat-sys-surface: var(--surface);
+  --mat-sys-surface-container: var(--surface);
+  --mat-sys-surface-container-high: var(--surface-raised);
+  --mat-sys-on-surface: var(--text);
+  --mat-sys-on-surface-variant: var(--muted);
+  --mat-sys-outline: var(--line);
+  --mat-sys-error: var(--danger);
+}
+
+html.light-theme {
+  color-scheme: light;
+  --page: #f7f5f8;
+  --surface: #ffffff;
+  --surface-raised: #f0edf3;
+  --toolbar: rgba(255, 255, 255, 0.94);
+  --line: rgba(45, 34, 58, 0.12);
+  --text: #292331;
+  --muted: #6c6673;
+  --accent: #70419b;
+  --accent-soft: rgba(112, 65, 155, 0.09);
+  --accent-border: rgba(112, 65, 155, 0.24);
+  --accent-on-fill: #ffffff;
+  --warning: #825600;
+  --warning-soft: rgba(130, 86, 0, 0.08);
+  --warning-border: rgba(130, 86, 0, 0.22);
+  --danger: #b42332;
+  --danger-soft: rgba(180, 35, 50, 0.07);
+  --danger-border: rgba(180, 35, 50, 0.24);
+  --shadow: 0 16px 42px rgba(47, 37, 56, 0.07);
+}
+
+html[lang='ar'] {
+  --font-interface: 'Noto Sans Arabic', Tahoma, 'Segoe UI', sans-serif;
+}
+
+html[lang='en'] {
+  --font-interface: Inter, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+body {
+  color: var(--text);
+  background: var(--page);
+  font-family: var(--font-interface, system-ui, sans-serif);
+  line-height: 1.5;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+::selection {
+  color: var(--accent-on-fill);
+  background: var(--accent);
+}

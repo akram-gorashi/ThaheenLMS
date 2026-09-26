@@ -1,0 +1,226 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+  color: var(--text);
+}
+.shell-container,
+.shell-content {
+  min-height: 100dvh;
+  background: transparent;
+}
+.shell-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+.shell-content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+.shell-drawer {
+  display: flex;
+  flex-direction: column;
+  width: 272px;
+  padding: 1.35rem 1rem 1.1rem;
+  color: #fff;
+  border-inline-end: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--nav-gradient);
+  box-shadow: 18px 0 44px rgba(21, 12, 38, 0.2);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 56px;
+  padding-inline: 0.7rem;
+  color: #fff;
+  font-size: 1.22rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 27px;
+  height: 27px;
+  fill: rgba(255, 255, 255, 0.94);
+  filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.2));
+}
+.navigation {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 2.4rem;
+}
+.navigation-link {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.8rem;
+  min-height: 50px;
+  color: rgba(255, 255, 255, 0.84);
+  border-radius: 13px;
+  font-weight: 600;
+}
+.navigation-link-active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.17);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.navigation-icon {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.65;
+}
+.drawer-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding: 0.85rem 0.75rem 0.2rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.77rem;
+}
+.offline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e4ffd7;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.13);
+}
+.shell-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  min-height: 68px;
+  color: var(--text);
+  border-bottom: 1px solid var(--line);
+  background: var(--toolbar);
+  backdrop-filter: blur(16px);
+}
+.toolbar-spacer {
+  flex: 1;
+}
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+}
+.icon-button {
+  width: 44px;
+  height: 44px;
+  color: var(--muted);
+  border-radius: 13px;
+}
+.icon-button:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.icon-button svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+  margin: auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+.language-button {
+  display: inline-flex;
+  align-items: center;
+  min-width: 126px;
+  min-height: 44px;
+  padding-inline: 0.8rem;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--surface);
+  font-size: 0.86rem;
+}
+.language-button:hover {
+  border-color: var(--accent-border);
+  background: var(--accent-soft);
+}
+.language-label {
+  display: flex;
+  align-items: center;
+  gap: 0.58rem;
+  width: 100%;
+}
+.language-icon {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+.dropdown-chevron {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  margin-inline-start: auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  transition: transform 0.18s ease;
+}
+.theme-button {
+  margin-inline-start: 0.08rem;
+}
+.page-content {
+  flex: 1 0 auto;
+  min-width: 0;
+  width: min(1440px, 100%);
+  margin-inline: auto;
+  padding: clamp(1rem, 3vw, 2.5rem);
+}
+.app-footer {
+  flex: 0 0 auto;
+  width: min(1440px, 100%);
+  align-self: center;
+  padding: 1rem clamp(1rem, 3vw, 2.5rem) 1.25rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  font-size: 0.78rem;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .shell-drawer {
+    width: min(82vw, 300px);
+  }
+  .page-content {
+    padding: 1rem;
+  }
+  .app-footer {
+    padding-inline: 1rem;
+  }
+}
+@media (max-width: 420px) {
+  .shell-toolbar {
+    padding-inline: 0.65rem;
+  }
+  .language-button {
+    min-width: 0;
+    gap: 0.42rem;
+    padding-inline: 0.6rem;
+  }
+  .toolbar-actions {
+    gap: 0.18rem;
+  }
+  .page-content {
+    padding: 0.85rem;
+  }
+  .app-footer {
+    padding-inline: 0.85rem;
+  }
+}
