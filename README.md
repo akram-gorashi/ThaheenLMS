@@ -54,11 +54,10 @@ The course catalog is static bilingual JSON, with `{ "ar": "…", "en": "…" }`
 
 ## Visual theme
 
-The visual palette uses a violet, magenta and coral navigation gradient in both themes. Light mode uses a warm off-white canvas, white cards and a deep violet accent; dark mode uses ink-plum surfaces and a soft lilac accent. Text, warning and error colors change with the theme, and key foreground/background pairs meet WCAG AA contrast. Arabic prefers Noto Sans Arabic with Tahoma and system fallbacks; English prefers Inter with Segoe UI, Roboto and Arial fallbacks. These are local system-font stacks, so the app makes no font CDN requests. Header icons are inline SVGs.
+The visual palette uses a violet, magenta and coral navigation gradient in both themes. Light mode uses a warm off-white canvas, white cards and a deep violet accent; dark mode uses ink-plum surfaces and a soft lilac accent. Text, warning and error colors change with the theme. Arabic prefers Noto Sans Arabic with Tahoma and system fallbacks; English prefers Inter with Segoe UI, Roboto and Arial fallbacks. These are local system-font stacks, so the app makes no font CDN requests. Header icons are inline SVGs.
 
 The shell includes a small translated footer. Video seeking uses a three-column layout with a shrink-safe range control, and course progress bars are clipped to their card width to prevent overlap on narrow screens.
 
-The catalog focuses on hand hygiene and infection prevention. All three MP4s are short, sequential excerpts from SAWBO's Arabic (Saudi Arabia) animation, “How to Wash Your Hands”; each lesson links to the original source and shows its attribution. SAWBO makes its animations freely available for educational use. The H.264/AAC excerpts are bundled locally, so playback does not make external media requests. Source: <https://sawbo-animations.org/74>.
 
 ## Progress behavior
 
