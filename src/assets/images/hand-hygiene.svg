@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Hand hygiene illustration">
+  <defs>
+    <linearGradient id="background" x2="1" y2="1"><stop stop-color="#392254"/><stop offset="1" stop-color="#211c3d"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#c77bea" stop-opacity=".8"/><stop offset="1" stop-color="#c77bea" stop-opacity="0"/></radialGradient>
+  </defs>
+  <path fill="url(#background)" d="M0 0h960v540H0z"/><circle cx="710" cy="170" r="245" fill="url(#glow)"/>
+  <g fill="none" stroke="#f0dffc" stroke-linecap="round" stroke-linejoin="round" stroke-width="18">
+    <path d="M568 330V177a23 23 0 0 1 46 0v107-139a23 23 0 0 1 46 0v134-111a23 23 0 0 1 46 0v123-87a23 23 0 0 1 46 0v142c0 70-49 119-113 119h-21c-45 0-78-24-98-61l-41-77a23 23 0 0 1 40-22l49 68z"/>
+    <path d="M660 82V50m-50 48-22-22m124 6 22-22m-112 69h72" stroke="#69e1c2" stroke-width="11"/>
+  </g>
+</svg>

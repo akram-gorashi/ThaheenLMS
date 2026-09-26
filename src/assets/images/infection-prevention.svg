@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Infection prevention illustration">
+  <defs>
+    <linearGradient id="background" x2="1" y2="1"><stop stop-color="#392340"/><stop offset="1" stop-color="#211e3d"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#d85291" stop-opacity=".75"/><stop offset="1" stop-color="#d85291" stop-opacity="0"/></radialGradient>
+  </defs>
+  <path fill="url(#background)" d="M0 0h960v540H0z"/><circle cx="695" cy="250" r="270" fill="url(#glow)"/>
+  <path d="M657 102 782 148v105c0 92-57 151-125 184-68-33-125-92-125-184V148z" fill="none" stroke="#f1e2f7" stroke-width="17" stroke-linejoin="round"/>
+  <path d="m594 259 43 44 83-91" fill="none" stroke="#69e1c2" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#c77bea"><circle cx="360" cy="170" r="10"/><circle cx="280" cy="278" r="7"/><circle cx="405" cy="364" r="9"/></g>
+  <path d="M100 420c99-107 176-198 289-203 64-3 103 26 147 63" fill="none" stroke="#bd8fe2" stroke-width="4" stroke-dasharray="9 14" opacity=".8"/>
+</svg>

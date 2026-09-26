@@ -1,0 +1,202 @@
+[
+  {
+    "id": "hand-hygiene",
+    "title": {
+      "ar": "أساسيات نظافة اليدين",
+      "en": "Hand Hygiene Essentials"
+    },
+    "instructor": {
+      "ar": "محتوى تعليمي من SAWBO",
+      "en": "SAWBO educational animation"
+    },
+    "thumbnail": "assets/images/hand-hygiene.svg",
+    "sections": [
+      {
+        "id": "hand-hygiene-basics",
+        "title": {
+          "ar": "لماذا نغسل أيدينا؟",
+          "en": "Why We Wash Our Hands"
+        },
+        "lessons": [
+          {
+            "id": "germs-and-hands",
+            "title": {
+              "ar": "نظافة اليدين ومنع انتشار الجراثيم",
+              "en": "Handwashing and Germ Prevention"
+            },
+            "durationSec": 81,
+            "video": "assets/videos/lesson-01.mp4",
+            "source": {
+              "name": "SAWBO",
+              "url": "https://sawbo-animations.org/74",
+              "license": {
+                "ar": "متاح مجانًا للأغراض التعليمية",
+                "en": "Free for educational use"
+              }
+            }
+          },
+          {
+            "id": "clean-hands-daily",
+            "title": {
+              "ar": "متى نحتاج إلى غسل اليدين؟",
+              "en": "When Should We Wash Our Hands?"
+            },
+            "durationSec": 81,
+            "video": "assets/videos/lesson-02.mp4",
+            "source": {
+              "name": "SAWBO",
+              "url": "https://sawbo-animations.org/74",
+              "license": {
+                "ar": "متاح مجانًا للأغراض التعليمية",
+                "en": "Free for educational use"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "handwashing-routine",
+        "title": {
+          "ar": "روتين غسل اليدين",
+          "en": "A Handwashing Routine"
+        },
+        "lessons": [
+          {
+            "id": "soap-and-water",
+            "title": {
+              "ar": "غسل اليدين بالماء والصابون",
+              "en": "Washing with Soap and Water"
+            },
+            "durationSec": 81,
+            "video": "assets/videos/lesson-02.mp4",
+            "source": {
+              "name": "SAWBO",
+              "url": "https://sawbo-animations.org/74",
+              "license": {
+                "ar": "متاح مجانًا للأغراض التعليمية",
+                "en": "Free for educational use"
+              }
+            }
+          },
+          {
+            "id": "handwashing-review",
+            "title": {
+              "ar": "مراجعة أساسيات غسل اليدين",
+              "en": "Reviewing Handwashing Essentials"
+            },
+            "durationSec": 81,
+            "video": "assets/videos/lesson-01.mp4",
+            "source": {
+              "name": "SAWBO",
+              "url": "https://sawbo-animations.org/74",
+              "license": {
+                "ar": "متاح مجانًا للأغراض التعليمية",
+                "en": "Free for educational use"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "infection-prevention",
+    "title": {
+      "ar": "نظافة اليدين والوقاية من العدوى",
+      "en": "Hand Hygiene and Infection Prevention"
+    },
+    "instructor": {
+      "ar": "محتوى تعليمي من SAWBO",
+      "en": "SAWBO educational animation"
+    },
+    "thumbnail": "assets/images/infection-prevention.svg",
+    "sections": [
+      {
+        "id": "infection-basics",
+        "title": {
+          "ar": "منع انتقال الجراثيم",
+          "en": "Stopping the Spread of Germs"
+        },
+        "lessons": [
+          {
+            "id": "hands-and-infection",
+            "title": {
+              "ar": "كيف تساعد نظافة اليدين على الوقاية؟",
+              "en": "How Hand Hygiene Helps Prevent Infection"
+            },
+            "durationSec": 81,
+            "video": "assets/videos/lesson-03.mp4",
+            "source": {
+              "name": "SAWBO",
+              "url": "https://sawbo-animations.org/74",
+              "license": {
+                "ar": "متاح مجانًا للأغراض التعليمية",
+                "en": "Free for educational use"
+              }
+            }
+          },
+          {
+            "id": "germ-spread-prevention",
+            "title": {
+              "ar": "الحد من انتقال الجراثيم باليدين",
+              "en": "Reducing Germ Spread Through Hands"
+            },
+            "durationSec": 81,
+            "video": "assets/videos/lesson-01.mp4",
+            "source": {
+              "name": "SAWBO",
+              "url": "https://sawbo-animations.org/74",
+              "license": {
+                "ar": "متاح مجانًا للأغراض التعليمية",
+                "en": "Free for educational use"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "hand-hygiene-practice",
+        "title": {
+          "ar": "نظافة اليدين في الحياة اليومية",
+          "en": "Everyday Hand Hygiene"
+        },
+        "lessons": [
+          {
+            "id": "daily-hand-hygiene",
+            "title": {
+              "ar": "عادات يومية ليدين نظيفتين",
+              "en": "Daily Habits for Clean Hands"
+            },
+            "durationSec": 81,
+            "video": "assets/videos/lesson-02.mp4",
+            "source": {
+              "name": "SAWBO",
+              "url": "https://sawbo-animations.org/74",
+              "license": {
+                "ar": "متاح مجانًا للأغراض التعليمية",
+                "en": "Free for educational use"
+              }
+            }
+          },
+          {
+            "id": "hand-hygiene-summary",
+            "title": {
+              "ar": "خلاصة نظافة اليدين",
+              "en": "Hand Hygiene Recap"
+            },
+            "durationSec": 81,
+            "video": "assets/videos/lesson-03.mp4",
+            "source": {
+              "name": "SAWBO",
+              "url": "https://sawbo-animations.org/74",
+              "license": {
+                "ar": "متاح مجانًا للأغراض التعليمية",
+                "en": "Free for educational use"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
